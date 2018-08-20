@@ -1,0 +1,25 @@
+{
+  "name": "red-contlib-cli-for-arduino",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/okhiroyuki/node-red-contlib-cli-for-arduino.git"
+  },
+  "keywords": [
+    "arduino"
+  ],
+  "author": "hiroyuki okada",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/okhiroyuki/node-red-contlib-cli-for-arduino/issues"
+  },
+  "homepage": "https://github.com/okhiroyuki/node-red-contlib-cli-for-arduino#readme",
+  "dependencies": {
+    "temp-write": "^3.4.0"
+  }
+}
