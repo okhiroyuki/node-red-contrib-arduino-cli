@@ -1,0 +1,9 @@
+{
+    "arduino-cli":{
+        "label":{
+            "boardlist": "ボードリスト",
+            "compile": "コンパイル",
+            "upload": "アップロード"
+        }
+    }
+}
