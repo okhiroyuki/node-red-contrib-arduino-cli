@@ -1,9 +1,18 @@
 {
     "arduino-cli":{
         "label":{
-            "boardlist": "BoardList",
+            "list": "List",
             "compile": "Compile",
-            "upload": "Upload"
+            "upload": "Upload",
+            "search": "Search",
+            "install": "Install",
+            "target": "Target",
+            "command": "Commands"
+        },
+        "command":{
+            "core": "core",
+            "lib": "lib",
+            "board": "board"
         }
     }
 }

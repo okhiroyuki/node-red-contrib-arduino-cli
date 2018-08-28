@@ -3,4 +3,4 @@
 This node can control Arduino using arduino-cli.
 
 ## Prepare
-- install [arduino-cli](https://github.com/arduino/arduino-cli)
+- install [arduino-cli 0.2.0-alpha.preview](https://github.com/arduino/arduino-cli)

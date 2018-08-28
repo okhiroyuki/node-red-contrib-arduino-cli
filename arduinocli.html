@@ -1,4 +1,13 @@
-<script type="text/x-red" data-template-name="arduino-cli boardlist">
+<script type="text/x-red" data-template-name="arduino-cli list">
+    <div class="form-row">
+        <label for="node-input-command"><i class="fa fa-list fa-fw"></i> <span data-i18n="arduino-cli.label.command"></span></label>
+        <select type="text" id="command-select">
+            <option value="board" data-i18n="arduino-cli.command.board"></option>
+            <option value="lib" data-i18n="arduino-cli.command.lib"></option>
+            <!-- <option value="core" data-i18n="arduino-cli.command.core"></option> -->
+        </select>
+        <input type="hidden" id="node-input-command">
+    </div>
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag fa-fw"></i> <span data-i18n="node-red:common.label.name"></span></label>
         <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
@@ -6,27 +15,39 @@
 </script>
 
 <script type="text/javascript">
-    RED.nodes.registerType('arduino-cli boardlist', {
+    RED.nodes.registerType('arduino-cli list', {
         category: 'arduino',
             color:"#62AEB2",
             defaults: {
                 name: {
                     value: ""
                 },
+                command: {
+                    value: "board"
+                }
             },
             inputs: 1,
             outputs: 1,
             icon: "function.png",
             paletteLabel: function() {
-                return this._("arduino-cli.label.boardlist");
+                return this._("arduino-cli.label.list");
             },
             label: function() {
-                return this.name || this._("arduino-cli.label.boardlist");
+                return this.name || this._("arduino-cli.label.list");
             },
             labelStyle: function() {
                 return this.name ? "node_label_italic" : "";
             },
             oneditprepare: function() {
+                $("#command-select option").filter(function() {
+                    var v = $("#node-input-command").val();
+                    return $(this).val() == v;
+                }).attr('selected', true);
+
+                $("#command-select").change(function() {
+                    var v = $("#command-select option:selected").val();
+                    $("#node-input-command").val(v);
+                });
             },
             oneditsave: function() {
             }
@@ -102,3 +123,128 @@
             }
     });
 </script>
+
+<!-- <script type="text/x-red" data-template-name="arduino-cli install">
+    <div class="form-row">
+        <label for="node-input-command"><i class="fa fa-list fa-fw"></i> <span data-i18n="arduino-cli.label.command"></span></label>
+        <select type="text" id="command-select">
+            <option value="core" data-i18n="arduino-cli.command.core"></option>
+            <option value="lib" data-i18n="arduino-cli.command.lib"></option>
+        </select>
+        <input type="hidden" id="node-input-command">
+    </div>
+    <div class="form-row">
+        <label for="node-input-target"><i class="fa fa-tag fa-fw"></i> <span data-i18n="arduino-cli.label.target"></span></label>
+        <input type="text" id="node-input-target">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag fa-fw"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+</script> -->
+
+<!-- <script type="text/javascript">
+    RED.nodes.registerType('arduino-cli install', {
+        category: 'arduino',
+            color:"#62AEB2",
+            defaults: {
+                name: {
+                    value: ""
+                },
+                target: {
+                    value: ""
+                },
+                command:{
+                    value: "core"
+                }
+            },
+            inputs: 1,
+            outputs: 1,
+            icon: "function.png",
+            paletteLabel: function() {
+                return this._("arduino-cli.label.install");
+            },
+            label: function() {
+                return this.name || this._("arduino-cli.label.install");
+            },
+            labelStyle: function() {
+                return this.name ? "node_label_italic" : "";
+            },
+            oneditprepare: function() {
+                $("#command-select option").filter(function() {
+                    var v = $("#node-input-command").val();
+                    return $(this).val() == v;
+                }).attr('selected', true);
+
+                $("#command-select").change(function() {
+                    var v = $("#command-select option:selected").val();
+                    $("#node-input-command").val(v);
+                });
+            },
+            oneditsave: function() {
+
+            }
+    });
+</script> -->
+
+<!-- <script type="text/x-red" data-template-name="arduino-cli search">
+    <div class="form-row">
+        <label for="node-input-command"><i class="fa fa-list fa-fw"></i> <span data-i18n="arduino-cli.label.command"></span></label>
+        <select type="text" id="command-select">
+            <option value="core" data-i18n="arduino-cli.command.core"></option>
+            <option value="lib" data-i18n="arduino-cli.command.lib"></option>
+        </select>
+        <input type="hidden" id="node-input-command">
+    </div>
+    <div class="form-row">
+        <label for="node-input-target"><i class="fa fa-tag fa-fw"></i> <span data-i18n="arduino-cli.label.target"></span></label>
+        <input type="text" id="node-input-target">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag fa-fw"></i> <span data-i18n="node-red:common.label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+</script> -->
+
+<!-- <script type="text/javascript">
+    RED.nodes.registerType('arduino-cli search', {
+        category: 'arduino',
+            color:"#62AEB2",
+            defaults: {
+                name: {
+                    value: ""
+                },
+                target:{
+                    value: ""
+                },
+                command:{
+                    value: "core"
+                }
+            },
+            inputs: 1,
+            outputs: 1,
+            icon: "function.png",
+            paletteLabel: function() {
+                return this._("arduino-cli.label.search");
+            },
+            label: function() {
+                return this.name || this._("arduino-cli.label.search");
+            },
+            labelStyle: function() {
+                return this.name ? "node_label_italic" : "";
+            },
+            oneditprepare: function() {
+                $("#command-select option").filter(function() {
+                    var v = $("#node-input-command").val();
+                    return $(this).val() == v;
+                }).attr('selected', true);
+
+                $("#command-select").change(function() {
+                    var v = $("#command-select option:selected").val();
+                    $("#node-input-command").val(v);
+                });
+            },
+            oneditsave: function() {
+            }
+    });
+</script> -->
