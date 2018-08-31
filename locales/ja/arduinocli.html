@@ -1,0 +1,62 @@
+<script type="text/x-red" data-help-name="arduino-cli list">
+    <p>ボード、あるいはライブラリのリストを取得します。</p>
+    <h3>Outputs(board)</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">string</span></dt>
+        <dd>下記の内容で構成されています。</dd>
+        <dt class="optional">serialBoards<span class="property-type">array</span></dt>
+        <dd>シリアルで接続されているボードのリスト</dd>
+        <dt class="optional">networkBoards<span class="property-type">array</span></dt>
+        <dd>ネットワークで接続されているボードのリスト</dd>
+    </dl>
+    <h3>Outputs(lib)</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">string</span></dt>
+        <dd>下記の内容で構成されています。</dd>
+        <dt class="optional">libraries<span class="property-type">array</span></dt>
+        <dd>インストールされているライブラリのリスト</dd>
+    </dl>
+</script>
+
+
+<script type="text/x-red" data-help-name="arduino-cli compile">
+    <p><code>msg.payload</code>にセットされたスケッチをコンパイルします。</p>
+    <h3>入力</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">string</span></dt>
+        <dd>スケッチをセット</dd>
+        <dt class="optional">fqbn<span class="property-type">string</span></dt>
+        <dd>コンパイルしたボードの種類を指定。リストノードで、<code>fqbn</code>が取得できます。</dd>
+    </dl>
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">string</span></dt>
+        <dd>下記の内容で構成されています。</dd>
+        <dt class="optional">Message<span class="property-type">string</span></dt>
+        <dd>コンパイル結果</dd>
+        <dt class="optional">Course<span class="property-type">string</span></dt>
+        <dd>コンパイルの失敗原因。コンパイルが成功した場合は、空になります。</dd>
+    </dl>
+</script>
+
+<script type="text/x-red" data-help-name="arduino-cli upload">
+    <p>Compile scketch set to msg.payload</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">string</span></dt>
+        <dd>スケッチをセット</dd>
+        <dt class="optional">port<span class="property-type">string</span></dt>
+        <dd>アップデートするポートを指定。リストノードで、<code>port</code>が取得できます。</dd>
+        <dt class="optional">fqbn<span class="property-type">string</span></dt>
+        <dd>コンパイルしたボードの種類を指定。リストノードで、<code>fqbn</code>が取得できます。</dd>
+    </dl>
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">string</span></dt>
+        <dd>下記の内容で構成されています。</dd>
+        <dt class="optional">Message<span class="property-type">string</span></dt>
+        <dd>アップロード結果。もし、アップロードが成功した場合、<code>success</code>が出力される。</dd>
+        <dt class="optional">Course<span class="property-type">string</span></dt>
+        <dd>コンパイルの失敗原因。コンパイルが成功した場合は、空になります。</dd>
+    </dl>
+</script>

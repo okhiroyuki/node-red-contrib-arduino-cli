@@ -14,6 +14,26 @@
     </div>
 </script>
 
+<script type="text/x-red" data-help-name="arduino-cli list">
+    <p>Get a list of boards or libraries.</p>
+    <h3>Outputs(board)</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">string</span></dt>
+        <dd>It consists of the following contents.</dd>
+        <dt class="optional">serialBoards<span class="property-type">array</span></dt>
+        <dd>List of boards connected in serial.</dd>
+        <dt class="optional">networkBoards<span class="property-type">array</span></dt>
+        <dd>List of boards connected by network.</dd>
+    </dl>
+    <h3>Outputs(lib)</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">string</span></dt>
+        <dd>It consists of the following contents.</dd>
+        <dt class="optional">libraries<span class="property-type">array</span></dt>
+        <dd>List of installed libraries.</dd>
+    </dl>
+</script>
+
 <script type="text/javascript">
     RED.nodes.registerType('arduino-cli list', {
         category: 'arduino',
@@ -61,6 +81,26 @@
     </div>
 </script>
 
+<script type="text/x-red" data-help-name="arduino-cli compile">
+    <p>Compile scketch set to msg.payload</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">string</span></dt>
+        <dd>Set the arduino sketch.</dd>
+        <dt class="optional">fqbn<span class="property-type">string</span></dt>
+        <dd>Specify compiled board type. You can get <code>fqbn</code> from the list node.</dd>
+    </dl>
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">string</span></dt>
+        <dd>It consists of the following contents.</dd>
+        <dt class="optional">Message<span class="property-type">string</span></dt>
+        <dd>Compile result.</dd>
+        <dt class="optional">Course<span class="property-type">string</span></dt>
+        <dd>Cause of compile failure. When the compilation is successful, it is outputted empty.</dd>
+    </dl>
+</script>
+
 <script type="text/javascript">
     RED.nodes.registerType('arduino-cli compile', {
         category: 'arduino',
@@ -94,6 +134,28 @@
         <label for="node-input-name"><i class="fa fa-tag fa-fw"></i> <span data-i18n="node-red:common.label.name"></span></label>
         <input type="text" id="node-input-name" data-i18n="[placeholder]node-red:common.label.name">
     </div>
+</script>
+
+<script type="text/x-red" data-help-name="arduino-cli upload">
+    <p>Compile scketch set to msg.payload</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">string</span></dt>
+        <dd>Set the arduino sketch.</dd>
+        <dt class="optional">port<span class="property-type">string</span></dt>
+        <dd>Specify port to write sketch. You can get <code>port</code> from the list node.</dd>
+        <dt class="optional">fqbn<span class="property-type">string</span></dt>
+        <dd>Specify compiled board type. You can get <code>fqbn</code> from the list node.</dd>
+    </dl>
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">string</span></dt>
+        <dd>It consists of the following contents.</dd>
+        <dt class="optional">Message<span class="property-type">string</span></dt>
+        <dd>Upload result. If the upload is successful, it will be success.</dd>
+        <dt class="optional">Course<span class="property-type">string</span></dt>
+        <dd>Cause of upload or compile failure. When the compilation is successful, it is outputted empty.</dd>
+    </dl>
 </script>
 
 <script type="text/javascript">

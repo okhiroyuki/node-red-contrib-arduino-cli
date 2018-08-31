@@ -7,7 +7,7 @@
             "search": "Search",
             "install": "Install",
             "target": "Target",
-            "command": "Commands"
+            "command": "Command"
         },
         "command":{
             "core": "core",

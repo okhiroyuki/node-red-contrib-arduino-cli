@@ -34,15 +34,14 @@ module.exports = function (RED) {
                         });
                         proc.stdout.on('end', () => {
                             try {
-                                if (output === "") {
-                                    msg.payload = "success";
-                                    this.send(msg);
-                                } else {
-                                    msg.payload = JSON.parse(output);
-                                    this.error(msg);
-                                }
-                            } catch (e) {
-                                console.log(e);
+                                msg.payload = JSON.parse(output);
+                                this.error(msg);
+                            }catch(e){
+                                msg.payload = {
+                                    "Message": "success",
+                                    "Cause": ""
+                                };
+                                this.send(msg);
                             }
                             tmpDir.removeCallback();
                         });
@@ -72,6 +71,14 @@ module.exports = function (RED) {
                     output += data;
                 });
                 proc.stdout.on('end', () => {
+                    try{
+                        msg.payload = JSON.parse(output);
+                    }catch(e){
+                        msg.payload = {
+                            "Message": output,
+                            "Cause": ""
+                        }
+                    }
                     this.send(msg);
                     tmpDir.removeCallback();
                 });
