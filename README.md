@@ -7,7 +7,7 @@ This node can control Arduino using arduino-cli.
 
 ## install
 ```
-$ npm install https://github.com/okhiroyuki/node-red-contlib-arduino-cli.git
+$ npm install node-red-contlib-arduino-cli
 ```
 
 ## Node functions
