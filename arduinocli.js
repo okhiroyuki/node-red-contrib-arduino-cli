@@ -24,7 +24,7 @@ module.exports = function (RED) {
                 proc.stdout.on('end', () => {
                     try {
                         msg.payload = JSON.parse(output);
-                        this.error(msg);
+                        this.error(msg.payload.Message);
                         tmpDir.removeCallback();
                     } catch (e) {
                         proc = child_process.spawn('arduino-cli', ['upload', '--format', 'json', '-p', msg.port, '--fqbn', msg.fqbn, tmpDir.name]);
@@ -35,13 +35,9 @@ module.exports = function (RED) {
                         proc.stdout.on('end', () => {
                             try {
                                 msg.payload = JSON.parse(output);
-                                this.error(msg);
+                                this.send(msg.payload);
                             }catch(e){
-                                msg.payload = {
-                                    "Message": "success",
-                                    "Cause": ""
-                                };
-                                this.send(msg);
+                                this.error(output);
                             }
                             tmpDir.removeCallback();
                         });
@@ -73,17 +69,14 @@ module.exports = function (RED) {
                 proc.stdout.on('end', () => {
                     try{
                         msg.payload = JSON.parse(output);
+                        this.send(msg);
                     }catch(e){
-                        msg.payload = {
-                            "Message": output,
-                            "Cause": ""
-                        }
+                        this.error(output);
                     }
-                    this.send(msg);
                     tmpDir.removeCallback();
                 });
             } catch (err) {
-                this.error(err, msg);
+                this.error(err);
             }
         });
     }
@@ -104,7 +97,16 @@ module.exports = function (RED) {
                 try{
                     msg.payload = JSON.parse(output);
                 }catch(e){
-                    msg.payload = output;
+                    switch(node.command){
+                        case "lib":
+                            msg.payload = {
+                                "libraries": []
+                            }
+                            break;
+                        default:
+                            msg.paylaod = output;
+                            break;
+                    }
                 }
                 this.send(msg);
             });
