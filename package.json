@@ -1,6 +1,6 @@
 {
   "name": "node-red-contlib-arduino-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "main": "arduinocli.js",
   "scripts": {
