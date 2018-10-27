@@ -1,5 +1,5 @@
 {
-  "name": "node-red-contlib-arduino-cli",
+  "name": "node-red-contrib-arduino-cli",
   "version": "0.0.3",
   "description": "",
   "main": "arduinocli.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/okhiroyuki/node-red-contlib-arduino-cli.git"
+    "url": "git+https://github.com/okhiroyuki/node-red-contrib-arduino-cli.git"
   },
   "keywords": [
     "arduino"
@@ -16,9 +16,9 @@
   "author": "hiroyuki okada",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/okhiroyuki/node-red-contlib-arduino-cli/issues"
+    "url": "https://github.com/okhiroyuki/node-red-contrib-arduino-cli/issues"
   },
-  "homepage": "https://github.com/okhiroyuki/node-red-contlib-arduino-cli#readme",
+  "homepage": "https://github.com/okhiroyuki/node-red-contrib-arduino-cli#readme",
   "dependencies": {
     "tmp": "0.0.33"
   },

@@ -1,4 +1,4 @@
-# node-red-contlib-arduino-cli
+# node-red-contrib-arduino-cli
 
 This node can control Arduino using arduino-cli.
 
@@ -7,7 +7,7 @@ This node can control Arduino using arduino-cli.
 
 ## install
 ```
-$ npm install node-red-contlib-arduino-cli
+$ npm install node-red-contrib-arduino-cli
 ```
 
 ## Node functions
