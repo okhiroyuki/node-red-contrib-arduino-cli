@@ -11,7 +11,8 @@ $ npm install node-red-contrib-arduino-cli
 ```
 
 ## Node functions
-- get board/library/core list
+- list (board/library/core)
+- search (lib/core)
 - compile
 - upload
 
