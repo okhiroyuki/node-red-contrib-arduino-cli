@@ -3,7 +3,7 @@
 This node can control Arduino using arduino-cli.
 
 ## Prepare
-- install [arduino-cli 0.2.1-alpha.preview](https://github.com/arduino/arduino-cli)
+- install [arduino-cli 0.3.6-alpha.preview](https://github.com/arduino/arduino-cli)
 
 ## install
 ```
@@ -11,7 +11,7 @@ $ npm install node-red-contrib-arduino-cli
 ```
 
 ## Node functions
-- get board or library list
+- get board/library/core list
 - compile
 - upload
 
